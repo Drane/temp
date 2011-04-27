@@ -1,0 +1,83 @@
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-22 22:16:33
+project --topLevelPackage com.prefabsoft --projectName prefabsoft.com --java 6
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-22 22:16:34
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-22 22:16:41
+persistence setup --provider HIBERNATE --database MYSQL 
+persistence setup --provider HIBERNATE --database MYSQL 
+persistence setup --provider HIBERNATE --database MYSQL --databaseName prefabserver --userName prefabsoft --password G3tM3In
+entity --class ~.security.acl.PrefabAclClass
+entity --class ~.security.acl.PrefabAclClass --versionField "" --identifierType "acl_class"
+// [failed] entity --class ~.security.acl.PrefabAclClass --versionField "" 
+entity --class ~.security.acl.PrefabAclClass --versionField "" 
+// [failed] entity --class ~.security.acl.PrefabAclClass --versionField 
+entity --class ~.security.acl.PrefabAclClass --versionField 
+// [failed] entity --class ~.security.acl.PrefabAclClass --versionField null
+entity --class ~.security.acl.PrefabAclClass --versionField null
+// [failed] entity --class ~.security.acl.PrefabAclClass --versionField " "
+// [failed] entity --class ~.security.acl.PrefabAclClass --versionField " "
+entity --class ~.security.acl.PrefabAclClass --versionField " "
+entity --class ~.security.acl.PrefabAclClass --versionField ""
+entity --class ~.security.acl.PrefabAclClass --versionField " " --table acl_class
+// [failed] field string --fieldName clazz --column class --notNull --unique 
+field string --fieldName clazz --column clazz --notNull --unique 
+// [failed] entity --class ~.security.acl.PrefabAclEntry --versionField " " --table acl_entry 
+entity --class ~.security.acl.PrefabAclEntry --versionField " " --table acl_entry 
+// [failed] entity --class ~.security.acl.PrefabAclSid --versionField " " --table acl_sid
+entity --class ~.security.acl.PrefabAclSid --versionField " " --table acl_sid
+field boolean principal --notNull 
+field string sid --notNull 
+// [failed] entity --class ~.security.acl.PrefabAclObjectIdentity --versionField " " --table acl_object_identity
+entity --class ~.security.acl.PrefabAclObjectIdentity --versionField " " --table acl_object_identity
+field other --fieldName object_id_class  --type ~security.acl.PrefabAclClass 
+// [failed] field set --fieldName object_id_class --type ~security.acl.PrefabAclClass --notNull --cardinality MANY_TO_ONE --class  AclClass.class
+// [failed] field set --fieldName object_id_class --notNull --cardinality MANY_TO_ONE --class PrefabAclClass.class --type ~security.acl.PrefabAclClass
+controller all --package ~.security.acl.web
+controller all --package ~.security.acl.web
+controller all --package ~.security.acl.web
+controller all --package ~.security.acl.web
+controller all --package ~.security.web
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-22 23:27:22
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-22 23:27:59
+controller all --package ~.security.acl.web
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-22 23:35:41
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-22 23:36:21
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-22 23:39:20
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-27 00:32:32
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-27 00:57:06
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-27 01:13:55
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-27 01:14:32
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-27 01:33:31
+persistence setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE 
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-27 02:01:28
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-04-27 02:05:38
+entity --class ~.security.model.PrefabUser
+field string emailAddress --sizeMax 50 --sizeMin 6 --unique yes --notNull
+field string userName --sizeMax 50 --sizeMin 6 --unique yes
+field string password --sizeMax 64 --notNull 
+field boolean accountNonExpired --notNull 
+field boolean accountNonLocked --notNull 
+field boolean credentialsNonExpired --notNull 
+field boolean enabled
+field date --fieldName dateCreate --type java.util.Date --notNull --past --value "#{new java.util.Date()}"
+field date --fieldName dateUpdate --type java.util.Date
+// script --file script\prefabSOFT\PrefabUser.roo
+entity --class ~.security.model.PrefabAuthority
+field reference --type ~.security.model.PrefabUser --fieldName owner --cardinality MANY_TO_ONE
+field string authority --sizeMax 50 --notNull
+field boolean active
+field date --fieldName dateCreate --type java.util.Date --notNull --past --value "#{new java.util.Date()}"
+field date --fieldName dateUpdate --type java.util.Date
+// script --file script\prefabSOFT\PrefabAuthority.roo
+entity --class ~.security.model.PrefabUser
+field string emailAddress --sizeMax 50 --sizeMin 6 --unique yes --notNull
+field string userName --sizeMax 50 --sizeMin 6 --unique yes
+field string password --sizeMax 64 --notNull 
+field boolean accountNonExpired --notNull 
+field boolean accountNonLocked --notNull 
+field boolean credentialsNonExpired --notNull 
+field boolean enabled
+field date --fieldName dateCreate --type java.util.Date --notNull --past --value "#{new java.util.Date()}"
+field date --fieldName dateUpdate --type java.util.Date
+// script --file script\prefabSOFT\PrefabUser.roo
+security setup
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-04-27 03:00:52
